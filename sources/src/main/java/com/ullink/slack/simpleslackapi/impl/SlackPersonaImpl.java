@@ -21,11 +21,14 @@ class SlackPersonaImpl implements SlackPersona {
     final String timeZoneLabel;
     final Integer timeZoneOffset;
     final SlackPresence presence;
+    private final String statusText;
+    private final String statusEmoji;
+    private final String imageURL;
 
     SlackPersonaImpl(String id, String userName, String realName, String userMail, String userSkype, String userPhone, String userTitle,
                      boolean deleted, boolean admin, boolean owner, boolean primaryOwner, boolean restricted,
                      boolean ultraRestricted, boolean bot, String timeZone, String timeZoneLabel, Integer timeZoneOffset,
-                     SlackPresence presence) {
+                     SlackPresence presence, String statusText, String statusEmoji, String imageURL) {
         this.id = id;
         this.userName = userName;
         this.realName = realName;
@@ -44,6 +47,9 @@ class SlackPersonaImpl implements SlackPersona {
         this.timeZoneLabel = timeZoneLabel;
         this.timeZoneOffset = timeZoneOffset;
         this.presence = presence;
+        this.statusText = statusText;
+        this.statusEmoji = statusEmoji;
+        this.imageURL = imageURL;
     }
 
     @Override
@@ -150,4 +156,18 @@ class SlackPersonaImpl implements SlackPersona {
         return presence;
     }
 
+    @Override
+    public String getStatusText() {
+        return statusText;
+    }
+
+    @Override
+    public String getStatusEmoji() {
+        return statusEmoji;
+    }
+
+    @Override
+    public String getImageURL() {
+        return imageURL;
+    }
 }

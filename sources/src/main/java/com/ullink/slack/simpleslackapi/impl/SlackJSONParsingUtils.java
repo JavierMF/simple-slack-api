@@ -39,6 +39,9 @@ class SlackJSONParsingUtils {
         String title = "";
         String phone = "";
         String presence = "";
+        String statusText = "";
+        String statusEmoji = "";
+        String imageURL = "";
         if (profileJSON !=null && !profileJSON.isJsonNull())
         {
             email = GsonHelper.getStringOrNull(profileJSON.get("email"));
@@ -46,6 +49,9 @@ class SlackJSONParsingUtils {
             title = GsonHelper.getStringOrNull(profileJSON.get("title"));
             phone = GsonHelper.getStringOrNull(profileJSON.get("phone"));
             presence = GsonHelper.getStringOrNull(profileJSON.get("presence"));
+            statusText = GsonHelper.getStringOrNull(profileJSON.get("status_text"));
+            statusEmoji = GsonHelper.getStringOrNull(profileJSON.get("status_emoji"));
+            imageURL = GsonHelper.getStringOrNull(profileJSON.get("image_72"));
         }
         SlackPersona.SlackPresence slackPresence = SlackPersona.SlackPresence.UNKNOWN;
         if ("active".equals(presence))
@@ -56,7 +62,9 @@ class SlackJSONParsingUtils {
         {
             slackPresence = SlackPersona.SlackPresence.AWAY;
         }
-        return new SlackUserImpl(id, name, realName, email, skype, title, phone, deleted, admin, owner, primaryOwner, restricted, ultraRestricted, bot, tz, tzLabel, tzOffset == null ? null : new Integer(tzOffset.intValue()), slackPresence);
+        return new SlackUserImpl(id, name, realName, email, skype, title, phone, deleted, admin, owner, primaryOwner, restricted, ultraRestricted, bot, tz, tzLabel, tzOffset == null ? null : new Integer(tzOffset.intValue()), slackPresence,
+               statusText, statusEmoji, imageURL
+        );
     }
 
     static final SlackChannel buildSlackChannel(JsonObject jsonChannel, Map<String, SlackUser> knownUsersById) {

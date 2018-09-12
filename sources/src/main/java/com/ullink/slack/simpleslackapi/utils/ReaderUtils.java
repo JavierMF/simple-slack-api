@@ -19,9 +19,9 @@ public final class ReaderUtils
      * Reads everything from reader and returns as string.
      * @param reader the object read from
      * @return a string containing all the information
+     * @throws java.io.IOException an exception
      */
-    public static String readAll(final Reader reader) throws IOException
-    {
+    public static String readAll(final Reader reader) throws IOException {
         if(reader == null)
         {
             throw new NullPointerException("Reader is null...");

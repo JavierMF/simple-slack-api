@@ -2,6 +2,12 @@ package com.ullink.slack.simpleslackapi;
 
 //TODO: collapse this down into SlackPersonaImpl
 public interface SlackPersona {
+    String getStatusText();
+
+    String getStatusEmoji();
+
+    String getImageURL();
+
     enum SlackPresence { UNKNOWN, ACTIVE, AWAY, AUTO }
 
     String getId();

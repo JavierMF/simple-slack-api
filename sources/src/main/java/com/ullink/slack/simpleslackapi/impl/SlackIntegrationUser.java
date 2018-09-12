@@ -12,6 +12,21 @@ class SlackIntegrationUser implements SlackIntegration, SlackUser
     }
 
     @Override
+    public String getStatusText() {
+        return null;
+    }
+
+    @Override
+    public String getStatusEmoji() {
+        return null;
+    }
+
+    @Override
+    public String getImageURL() {
+        return null;
+    }
+
+    @Override
     public String getId()
     {
         return integration.getId();

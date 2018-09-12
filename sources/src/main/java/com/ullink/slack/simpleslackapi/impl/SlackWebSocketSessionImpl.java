@@ -1106,7 +1106,7 @@ class SlackWebSocketSessionImpl extends AbstractSlackSessionImpl implements Slac
             SlackUserImpl newUser = new SlackUserImpl(user.getId(), user.getUserName(), user.getRealName(), user.getUserMail(), user.getUserSkype(), user.getUserTitle(), user.getUserPhone(),
                 user.isDeleted(), user.isAdmin(), user.isOwner(), user.isPrimaryOwner(), user.isRestricted(),
                 user.isUltraRestricted(), user.isBot(), user.getTimeZone(), user.getTimeZoneLabel(), user.getTimeZoneOffset(),
-                event.getPresence());
+                event.getPresence(), user.getStatusText(), user.getStatusEmoji(), user.getImageURL());
             users.put(event.getUserId(), newUser);
         }
     };

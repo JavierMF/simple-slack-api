@@ -16,9 +16,11 @@ class SlackUserImpl extends SlackPersonaImpl implements SlackUser {
     SlackUserImpl(String id, String userName, String realName, String userMail, String userSkype, String userTitle, String userPhone,
                   boolean deleted, boolean admin, boolean owner, boolean primaryOwner, boolean restricted,
                   boolean ultraRestricted, boolean bot, String timeZone, String timeZoneLabel, Integer timeZoneOffset,
-                  SlackPresence slackPresence)
+                  SlackPresence slackPresence, String statusText, String statusEmoji, String imageURL)
     {
         super(id, userName, realName, userMail, userSkype, userPhone, userTitle, deleted, admin, owner, primaryOwner,
-                restricted, ultraRestricted, bot, timeZone, timeZoneLabel, timeZoneOffset, slackPresence);
+                restricted, ultraRestricted, bot, timeZone, timeZoneLabel, timeZoneOffset, slackPresence,
+                statusText, statusEmoji, imageURL
+        );
     }
 }
